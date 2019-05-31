@@ -374,8 +374,8 @@ class LoopContextBase(object):
     first = property(lambda x: x.index0 == 0)
     last = property(lambda x: x._after is _last_iteration)
     index = property(lambda x: x.index0 + 1)
-    revindex = property(lambda x: x.length - x.index0)
-    revindex0 = property(lambda x: x.length - x.index)
+    revindex = property(lambda x: x.length - x.index0 if x.length is not 1 else x.length)
+    revindex0 = property(lambda x: x.length - x.index if x.length is not 1 else 0)
     depth = property(lambda x: x.depth0 + 1)
 
     @property
